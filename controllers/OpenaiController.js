@@ -1,4 +1,4 @@
-const openai = require('../config/openai-config')
+const openai = require('../config/openaiConfig.js')
 
 const generateMeta = async (title) => {
 
@@ -7,9 +7,14 @@ const generateMeta = async (title) => {
         messages: [
         {
             role: 'user',
-            content: `Come up with a description for a youtube video called${title}`
+            content: `Come up with a description for a youtube video called ${title}`
         }   
-    ]
+    ],
+    max_tokens: 100
  })
 
+    console.log(description.data.choices[0].message)
+
 }
+
+module.exports = { generateMeta }
