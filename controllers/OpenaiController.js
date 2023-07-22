@@ -30,6 +30,17 @@ const generateMeta = async (title) => {
 
 }
 
+const generateImage = async (desc) => {
+
+    const image = await openai.createImage({
+        prompt: desc,
+        n: 1,
+        size: '256x256'
+    })
+
+    console.log(image.data.data[0].url)
+}
 
 
-module.exports = { generateMeta }
+
+module.exports = { generateMeta, generateImage }
